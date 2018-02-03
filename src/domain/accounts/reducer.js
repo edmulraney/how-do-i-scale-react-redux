@@ -8,12 +8,8 @@ import {
 const initialState = {
   isLoading: false,
   isLoaded: false,
-  entities: {},
-  ids: [],
+  entities: [],
 }
-
-const normalize = accounts => accounts.reduce((normalized = {}, account) => ({ ...normalized, [account.id]: account }), {})
-const getIds = (entities, idProp = 'id') => entities.map(entity => entity[idProp])
 
 export default function reducer(state = initialState, action) {
   switch (action.payload) {
@@ -23,12 +19,14 @@ export default function reducer(state = initialState, action) {
     }
 
     case FETCH_ACCOUNTS_SUCCEEDED: {
-      return { ...state, isLoading: false, entities: normalize(adapter(action.payload)), ids: getIds(action.payload) }
+      return { ...state, isLoading: false, entities: adapter(action.payload) }
     }
 
     case FETCH_ACCOUNTS_FAILED: {
       return { ...state, isLoading: false }
     }
+
+    default: return state
   }
 }
 

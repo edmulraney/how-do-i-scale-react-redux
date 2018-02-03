@@ -8,3 +8,7 @@ const routes = {
 function fetchAll() {
   return axios.get(routes.fetchAll).then(adapter)
 }
+
+export default {
+  fetchAll,
+}

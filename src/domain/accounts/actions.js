@@ -10,7 +10,7 @@ function fetchAll() {
     dispatch({ type: FETCH_ACCOUNTS_REQUESTED })
     return api.fetch()
       .then(
-        result => dispatch({ type: FETCH_ACCOUNTS_REQUESTED, payload: result }),
+        result => dispatch({ type: FETCH_ACCOUNTS_SUCCEEDED, payload: result }),
         error => dispatch({ type: FETCH_ACCOUNTS_FAILED, payload: error })
       )
     }

@@ -1,7 +1,6 @@
-export default function adapter(raw) {
-  return {
-    id: raw.uglyId,
-    name: raw.alias,
-
-  }
+export default function adapter(response) {
+  return response.map(entity => ({
+    id: response.uglyId,
+    name: response.alias,
+  }))
 }

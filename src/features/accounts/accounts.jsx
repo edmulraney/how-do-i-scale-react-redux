@@ -3,9 +3,10 @@ import Account from './account'
 import PropTypes from 'prop-types'
 
 export default function Accounts(props) {
+  console.log(props)
   return (
     <ul>
-      {props.entities.map(entity => <Account account={entity} />)}
+      {props.accounts.map(account => <Account account={account} />)}
     </ul>
   )
 }
@@ -13,3 +14,5 @@ export default function Accounts(props) {
 Accounts.propTypes = {
   accounts: PropTypes.array,
 }
+
+Accounts.defaultProps = {}

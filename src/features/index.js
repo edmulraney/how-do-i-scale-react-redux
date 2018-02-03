@@ -1,2 +1,2 @@
-export { default as Dashboard} from './dashboard'
-export { default as Accounts} from './accounts'
+export { default as Dashboard } from './dashboard'
+export { default as Accounts } from './accounts'

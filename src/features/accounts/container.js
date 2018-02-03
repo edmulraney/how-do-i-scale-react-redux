@@ -1,7 +1,12 @@
+import React from 'react'
 import { connect } from 'react-redux'
+import { selector } from 'domain/accounts'
+import Accounts from './accounts'
 
-export default function Container(props) {
+function Container(props) {
   return (
-    <Accounts accounts={accounts} />
+    <Accounts accounts={props.accounts} />
   )
 }
+
+export default connect(selector)(Container)
