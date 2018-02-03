@@ -1,3 +1,1 @@
-export default function selectors(state) {
-  return state.privileges
-}
+const getAccounts = state => state.accounts
