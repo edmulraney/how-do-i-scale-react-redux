@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
   switch (action.payload) {
 
     case FETCH_ACCOUNTS_REQUESTED: {
-      return { ...state, isLoading: true, entities: {}, ids: [] }
+      return { ...state, isLoading: true, entities: [] }
     }
 
     case FETCH_ACCOUNTS_SUCCEEDED: {
