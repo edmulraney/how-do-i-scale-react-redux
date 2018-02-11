@@ -5,7 +5,7 @@ import {
   FETCH_ACCOUNTS_SUCCEEDED,
 } from './action-types'
 
-function fetchAll() {
+function fetchAccounts() {
   return dispatch => {
     dispatch({ type: FETCH_ACCOUNTS_REQUESTED })
     return api.fetch()
@@ -17,5 +17,9 @@ function fetchAll() {
 }
 
 export {
-  fetchAll,
+  fetchAccounts,
+}
+
+export default {
+  fetchAccounts,
 }

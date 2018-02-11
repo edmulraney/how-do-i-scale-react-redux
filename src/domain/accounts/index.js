@@ -1,3 +1,9 @@
-export { default as actions } from './actions'
-export { default as reducer } from './reducer'
-export { default as selector } from './selector'
+import actions from './actions'
+import reducer from './reducer'
+import selector from './selector'
+
+export default {
+  actions,
+  reducer,
+  selector,
+}

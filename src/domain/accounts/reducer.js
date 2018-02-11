@@ -1,4 +1,3 @@
-import adapter from './adapter'
 import {
   FETCH_ACCOUNTS_REQUESTED,
   FETCH_ACCOUNTS_FAILED,
@@ -12,14 +11,13 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action) {
-  switch (action.payload) {
-
+  switch (action.type) {
     case FETCH_ACCOUNTS_REQUESTED: {
       return { ...state, isLoading: true, entities: [] }
     }
 
     case FETCH_ACCOUNTS_SUCCEEDED: {
-      return { ...state, isLoading: false, entities: adapter(action.payload) }
+      return { ...state, isLoading: false, entities: action.payload }
     }
 
     case FETCH_ACCOUNTS_FAILED: {

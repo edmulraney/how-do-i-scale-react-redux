@@ -1,14 +1,17 @@
-import axios from 'axios'
+import { api } from 'services'
 import adapter from './adapter'
 
-const routes = {
-  fetchAll: '/api/privileges',
+const endpoint = '/accounts'
+
+function fetch() {
+  return api.get(endpoint).then(adapter)
 }
 
-function fetchAll() {
-  return axios.get(routes.fetchAll).then(adapter)
+function create(account) {
+  return api.post(endpoint, account)
 }
 
 export default {
-  fetchAll,
+  fetch,
+  create,
 }

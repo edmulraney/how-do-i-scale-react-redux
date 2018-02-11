@@ -3,10 +3,9 @@ import Account from './account'
 import PropTypes from 'prop-types'
 
 export default function Accounts(props) {
-  console.log(props)
   return (
     <ul>
-      {props.accounts.map(account => <Account account={account} />)}
+      {props.accounts.map(account => <Account key={account.id} account={account} />)}
     </ul>
   )
 }
@@ -14,5 +13,3 @@ export default function Accounts(props) {
 Accounts.propTypes = {
   accounts: PropTypes.array,
 }
-
-Accounts.defaultProps = {}

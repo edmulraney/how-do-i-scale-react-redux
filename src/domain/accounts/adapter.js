@@ -1,6 +1,7 @@
 export default function adapter(response) {
   return response.map(entity => ({
-    id: response.uglyId,
-    name: response.alias,
+    id: entity.account_ID,
+    name: entity.account_alias,
+    balance: entity.account_funds,
   }))
 }

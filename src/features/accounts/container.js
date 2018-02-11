@@ -1,12 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { selector } from '../../domain/accounts'
+import { Loader } from 'components'
+import { accounts } from '../../domain'
 import Accounts from './accounts'
 
-function Container(props) {
-  return (
-    <Accounts accounts={props.accounts} />
-  )
+class Container extends React.Component {
+  componentDidMount() {
+    this.props.fetchAccounts()
+  }
+
+  render() {
+    if (this.props.isLoading) {
+      return (<Loader />)
+    }
+
+    return (
+      <Accounts accounts={this.props.entities} />
+    )
+  }
 }
 
-export default connect(selector)(Container)
+export default connect(accounts.selector, {
+  fetchAccounts: accounts.actions.fetchAccounts,
+})(Container)
